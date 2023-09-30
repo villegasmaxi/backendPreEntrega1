@@ -22,8 +22,35 @@ routerCart.get('/:cid', (req, res) => {
 });
 
 // Agregar un producto a un carrito
-// Implementa esta ruta similar a las rutas de productos
 
-// Implementa más rutas para listar y eliminar productos del carrito si es necesario
+routerCart.post('/:cid/product/:pid', (req, res) => {
+  const { cid, pid } = req.params;
+  const { quantity } = req.body;
+  const success = cartManager.addProductToCart(parseInt(cid), parseInt(pid), quantity);
+  if (success) {
+    res.json({ message: 'Producto agregado al carrito con éxito' });
+  } else {
+    res.status(404).json({ error: 'Carrito o producto no encontrado' });
+  }
+});
+
+
+// Obtener productos en un carrito
+routerCart.get('/:cid/products', (req, res) => {
+  const { cid } = req.params;
+  const products = cartManager.getProductsInCart(parseInt(cid));
+  res.json(products);
+});
+
+// Eliminar un producto de un carrito
+routerCart.delete('/:cid/product/:pid', (req, res) => {
+  const { cid, pid } = req.params;
+  const success = cartManager.removeProductFromCart(parseInt(cid), parseInt(pid));
+  if (success) {
+    res.json({ message: 'Producto eliminado del carrito con éxito' });
+  } else {
+    res.status(404).json({ error: 'Carrito o producto no encontrado en el carrito' });
+  }
+});
 
 export default routerCart;

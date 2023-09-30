@@ -1,5 +1,6 @@
 // carts.js
 import fs from 'fs';
+import productManager from "./products.js";
 
 class CartManager {
   constructor() {
@@ -40,7 +41,51 @@ class CartManager {
     return this.carts.find((cart) => cart.id === id);
   }
 
-  // Implementa métodos para agregar, listar y eliminar productos de un carrito.
+  addProductToCart(cartId, productId, quantity) {
+    const cart = this.getCartById(cartId);
+    const product = productManager.getProductById(productId);
+
+    if (!cart || !product) {
+      return false; // Error: Carrito o producto no encontrado
+    }
+
+    // Verifica si el producto ya está en el carrito
+    const existingProduct = cart.products.find((item) => item.product.id === productId);
+    if (existingProduct) {
+      // Si el producto ya existe, incrementa la cantidad
+      existingProduct.quantity += quantity;
+    } else {
+      // Si el producto no existe en el carrito, agrégalo
+      cart.products.push({ product, quantity });
+    }
+   }
+  
+
+  // para listar productos de un carrito.
+  getProductsInCart(cartId) {
+    const cart = this.getCartById(cartId);
+    return cart ? cart.products : [];
+  }
+
+  //eliminar productos de un carrito.
+  removeProductFromCart(cartId, productId) {
+    const cart = this.getCartById(cartId);
+
+    if (!cart) {
+      return false; // Error: Carrito no encontrado
+    }
+
+    const index = cart.products.findIndex((item) => item.product.id === productId);
+
+    if (index !== -1) {
+      // Elimina el producto del carrito
+      cart.products.splice(index, 1);
+      this.saveCarts();
+      return true;
+    }
+
+    return false; // Error: Producto no encontrado en el carrito
+  }
 }
 
 const cartManager = new CartManager();
