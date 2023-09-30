@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "title": "Producto prueba",
+    "description": "Este es un producto prueba",
+    "price": 200,
+    "thumbnail": "Sin imagen",
+    "code": "abc123",
+    "stock": 25
+  },
+  {
+    "id": 2,
+    "title": "Producto prueba 2",
+    "description": "Este es un producto prueba 2",
+    "price": 200,
+    "thumbnail": "Sin imagen",
+    "code": "abc1232",
+    "stock": 20
+  },
+  {
+    "id": 3,
+    "title": "Producto prueba 3",
+    "description": "Este es un producto prueba 3",
+    "price": 300,
+    "thumbnail": "Sin imagen",
+    "code": "abc1233",
+    "stock": 25
+  },
+  {
+    "id": 4,
+    "title": "Producto prueba 4",
+    "description": "Este es un producto prueba 4",
+    "price": 400,
+    "thumbnail": "Sin imagen",
+    "code": "abc1234",
+    "stock": 25
+  },
+  {
+    "id": 5,
+    "title": "Producto prueba 5",
+    "description": "Este es un producto prueba 5",
+    "price": 500,
+    "thumbnail": "Sin imagen",
+    "code": "abc1235",
+    "stock": 30
+  },
+  {
+    "id": 6,
+    "title": "Producto prueba 6",
+    "description": "Este es un producto prueba 6",
+    "price": 600,
+    "thumbnail": "Sin imagen",
+    "code": "abc1236",
+    "stock": 35
+  },
+  {
+    "id": 7,
+    "title": "Producto prueba 7",
+    "description": "Este es un producto prueba 7",
+    "price": 700,
+    "thumbnail": "Sin imagen",
+    "code": "abc1237",
+    "stock": 40
+  },
+  {
+    "id": 8,
+    "title": "Producto prueba 8",
+    "description": "Este es un producto prueba 8",
+    "price": 800,
+    "thumbnail": "Sin imagen",
+    "code": "abc1238",
+    "stock": 40
+  },
+  {
+    "id": 9,
+    "title": "Producto prueba 9",
+    "description": "Este es un producto prueba 9",
+    "price": 900,
+    "thumbnail": "Sin imagen",
+    "code": "abc1239",
+    "stock": 45
+  },
+  {
+    "id": 10,
+    "title": "Producto prueba 10",
+    "description": "Este es un producto prueba 10",
+    "price": 1000,
+    "thumbnail": "Sin imagen",
+    "code": "abc1240",
+    "stock": 50
+  },
+  {
+    "id": 11,
+    "title": "Producto prueba",
+    "description": "Este es un producto prueba 11",
+    "price": 200,
+    "thumbnail": "Sin imagen",
+    "code": "abc12345",
+    "stock": 25
+  },
+  {
+    "id": 12,
+    "title": "Producto prueba 12",
+    "description": "Este es un producto prueba 12",
+    "price": 1000,
+    "thumbnail": "Sin imagen",
+    "code": "abc123456",
+    "stock": 25
+  }
+]
