@@ -27,11 +27,24 @@ class CartManager {
     fs.writeFileSync(this.path, JSON.stringify(this.carts, null, 2), 'utf8');
   }
 
-  createCart() {
+//   createCart() {
+//     const cart = {
+//       id: this.nextId++,
+//       products: [],
+//     };
+//     this.carts.push(cart);
+//     this.saveCarts();
+//     return cart;
+//   }
+createCart() {
+    const maxId = this.carts.reduce((max, cart) => (cart.id > max ? cart.id : max), 0);
+    const newId = maxId + 1;
+  
     const cart = {
-      id: this.nextId++,
+      id: newId,
       products: [],
     };
+  
     this.carts.push(cart);
     this.saveCarts();
     return cart;

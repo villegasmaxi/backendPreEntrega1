@@ -2,17 +2,15 @@
 // app.js
 import express from 'express';
 import productsRouter from './router/routes.js';
-import cartsRouter from './router/routesCart.js'; // Importa el enrutador de carritos
+import cartsRouter from './router/routesCart.js';
 import bodyParser from 'body-parser';
 
 
 const app = express();
+const PORT = 8080; 
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-
-const PORT = 8080;
-
 app.use(bodyParser.json());
 
 app.use('/api/products', productsRouter);
