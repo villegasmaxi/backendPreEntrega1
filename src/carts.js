@@ -27,28 +27,32 @@ class CartManager {
     fs.writeFileSync(this.path, JSON.stringify(this.carts, null, 2), 'utf8');
   }
 
-//   createCart() {
-//     const cart = {
-//       id: this.nextId++,
-//       products: [],
-//     };
-//     this.carts.push(cart);
-//     this.saveCarts();
-//     return cart;
-//   }
-createCart() {
+  createCart() {
     const maxId = this.carts.reduce((max, cart) => (cart.id > max ? cart.id : max), 0);
-    const newId = maxId + 1;
-  
     const cart = {
-      id: newId,
+      id: maxId + 1,
       products: [],
     };
-  
     this.carts.push(cart);
     this.saveCarts();
     return cart;
   }
+
+  // createCart(id) {
+// const cartExist = this.getCartById(id)
+//  if (cartExist){
+//   return {response: 'El carrito ya existe'}
+//  }
+  
+//     const cart = {
+//       id: id,
+//       products: [],
+//     };
+  
+//     this.carts.push(cart);
+//     this.saveCarts();
+//     return cart;
+//   }
 
   getCartById(id) {
     return this.carts.find((cart) => cart.id === id);
@@ -63,13 +67,17 @@ createCart() {
     }
 
     // Verifica si el producto ya está en el carrito
-    const existingProduct = cart.products.find((item) => item.product.id === productId);
+    const existingProduct = cart.products.find((item) => item.id === productId);
     if (existingProduct) {
       // Si el producto ya existe, incrementa la cantidad
-      existingProduct.quantity += quantity;
+      existingProduct.quantity += 1;
+      this.saveCarts();
+      return true
     } else {
       // Si el producto no existe en el carrito, agrégalo
-      cart.products.push({ product, quantity });
+      cart.products.push({ id: product.id, quantity: 1 });
+      this.saveCarts();
+      return true
     }
    }
   

@@ -4,71 +4,20 @@
     "products": []
   },
   {
-    "id": 1,
-    "products": []
-  },
-  {
-    "id": 2,
-    "products": []
-  },
-  {
-    "id": 1,
-    "products": []
-  },
-  {
-    "id": 2,
-    "products": []
-  },
-  {
-    "id": 3,
-    "products": []
-  },
-  {
     "id": 4,
     "products": []
   },
   {
     "id": 5,
-    "products": []
-  },
-  {
-    "id": 1,
-    "products": []
-  },
-  {
-    "id": 2,
-    "products": []
-  },
-  {
-    "id": 1,
-    "products": []
-  },
-  {
-    "id": 2,
-    "products": []
-  },
-  {
-    "id": 3,
-    "products": []
-  },
-  {
-    "id": 4,
-    "products": []
-  },
-  {
-    "id": 1,
-    "products": []
-  },
-  {
-    "id": 2,
-    "products": []
-  },
-  {
-    "id": 6,
-    "products": []
-  },
-  {
-    "id": 7,
-    "products": []
+    "products": [
+      {
+        "id": 24,
+        "quantity": 3
+      },
+      {
+        "id": 25,
+        "quantity": 2
+      }
+    ]
   }
 ]

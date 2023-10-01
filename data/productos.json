@@ -8,7 +8,9 @@
     "status": true,
     "stock": 10,
     "category": "cafe",
-    "thumbnail": ["https://i.postimg.cc/mk3rrxZm/caramel-machiato.jpg"]
+    "thumbnail": [
+      "https://i.postimg.cc/mk3rrxZm/caramel-machiato.jpg"
+    ]
   },
   {
     "id": 25,
@@ -19,7 +21,9 @@
     "status": true,
     "stock": 10,
     "category": "postre",
-    "thumbnail": ["https://i.postimg.cc/hPq7PGh5/copa-Helada.jpg"]
+    "thumbnail": [
+      "https://i.postimg.cc/hPq7PGh5/copa-Helada.jpg"
+    ]
   },
   {
     "id": 26,
@@ -30,7 +34,9 @@
     "status": true,
     "stock": 10,
     "category": "comida",
-    "thumbnail": ["https://i.postimg.cc/8krFKWrd/parrillada.jpg"]
+    "thumbnail": [
+      "https://i.postimg.cc/8krFKWrd/parrillada.jpg"
+    ]
   },
   {
     "id": 27,
@@ -41,7 +47,9 @@
     "status": true,
     "stock": 10,
     "category": "comida",
-    "thumbnail": ["https://i.postimg.cc/m2fP0DQv/plato-del-dia.jpg"]
+    "thumbnail": [
+      "https://i.postimg.cc/m2fP0DQv/plato-del-dia.jpg"
+    ]
   },
   {
     "id": 28,
@@ -52,7 +60,9 @@
     "status": true,
     "stock": 10,
     "category": "comida",
-    "thumbnail": ["https://i.postimg.cc/sgK1Q4tz/entrada.jpg"]
+    "thumbnail": [
+      "https://i.postimg.cc/sgK1Q4tz/entrada.jpg"
+    ]
   },
   {
     "id": 29,
@@ -63,7 +73,9 @@
     "status": true,
     "stock": 10,
     "category": "cafe",
-    "thumbnail": ["https://i.postimg.cc/02Yzxsnb/cafe.jpg"]
+    "thumbnail": [
+      "https://i.postimg.cc/02Yzxsnb/cafe.jpg"
+    ]
   },
   {
     "id": 30,
@@ -74,7 +86,9 @@
     "status": true,
     "stock": 10,
     "category": "comida",
-    "thumbnail": ["https://i.postimg.cc/k4gTHfsT/picada.jpg"]
+    "thumbnail": [
+      "https://i.postimg.cc/k4gTHfsT/picada.jpg"
+    ]
   },
   {
     "id": 31,
@@ -85,7 +99,9 @@
     "status": true,
     "stock": 10,
     "category": "cafe",
-    "thumbnail": ["https://i.postimg.cc/MG01Y8CT/capuchino.jpg"]
+    "thumbnail": [
+      "https://i.postimg.cc/MG01Y8CT/capuchino.jpg"
+    ]
   },
   {
     "id": 32,
@@ -96,7 +112,9 @@
     "status": true,
     "stock": 10,
     "category": "comida",
-    "thumbnail": ["https://i.postimg.cc/hGYpP6fW/sushi.jpg"]
+    "thumbnail": [
+      "https://i.postimg.cc/hGYpP6fW/sushi.jpg"
+    ]
   },
   {
     "id": 33,
@@ -107,7 +125,9 @@
     "status": true,
     "stock": 10,
     "category": "postre",
-    "thumbnail": ["https://i.postimg.cc/Ss9MTb23/Postre-vigilante.jpg"]
+    "thumbnail": [
+      "https://i.postimg.cc/Ss9MTb23/Postre-vigilante.jpg"
+    ]
   },
   {
     "id": 34,
@@ -118,7 +138,9 @@
     "status": true,
     "stock": 10,
     "category": "postre",
-    "thumbnail": ["https://i.postimg.cc/cJbHT4x5/volcan-de-chocolate.jpg"]
+    "thumbnail": [
+      "https://i.postimg.cc/cJbHT4x5/volcan-de-chocolate.jpg"
+    ]
   },
   {
     "id": 35,
@@ -129,6 +151,47 @@
     "status": true,
     "stock": 10,
     "category": "comida",
-    "thumbnail": ["https://i.postimg.cc/fyXJVnhq/pastas.jpg"]
+    "thumbnail": [
+      "https://i.postimg.cc/fyXJVnhq/pastas.jpg"
+    ]
+  },
+  {
+    "id": 36,
+    "title": "pastas",
+    "description": "pastas caseras con las mejores salsas",
+    "code": 10000,
+    "price": 8900,
+    "status": true,
+    "stock": 10,
+    "category": "comida",
+    "thumbnail": [
+      "https://i.postimg.cc/fyXJVnhq/pastas.jpg"
+    ]
+  },
+  {
+    "id": 37,
+    "title": "pastas",
+    "description": "pastas caseras con las mejores salsas",
+    "code": 10001,
+    "price": 8900,
+    "status": true,
+    "stock": 10,
+    "category": "comida",
+    "thumbnail": [
+      "https://i.postimg.cc/fyXJVnhq/pastas.jpg"
+    ]
+  },
+  {
+    "id": 38,
+    "title": "pastas",
+    "description": "pastas caseras con las mejores salsas",
+    "code": 10002,
+    "price": 8900,
+    "status": false,
+    "stock": 10,
+    "category": "comida",
+    "thumbnail": [
+      "https://i.postimg.cc/fyXJVnhq/pastas.jpg"
+    ]
   }
 ]

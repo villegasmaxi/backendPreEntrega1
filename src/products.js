@@ -28,7 +28,7 @@ class ProductManager {
     }
 
     addProduct(productData) {
-        const { title, description, price,code, stock,category,thumbnail } = productData;
+        const { title, description, price,code,status, stock,category,thumbnail } = productData;
 
         if (!title || !description || !price ||!code || !stock) {
             console.error("Todos los campos son obligatorios.");
@@ -46,7 +46,7 @@ class ProductManager {
             description,
             code,
             price,
-            status:true,
+            status: status === false ? false : true,
             stock,
             category,
             thumbnail

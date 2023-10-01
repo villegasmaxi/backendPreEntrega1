@@ -6,7 +6,8 @@ const routerCart = express.Router();
 
 // Crear un nuevo carrito
 routerCart.post('/', (req, res) => {
-  const newCart = cartManager.createCart();
+  const { cid } = req.params;
+  const newCart = cartManager.createCart(parseInt(cid));
   res.json(newCart);
 });
 
@@ -22,7 +23,6 @@ routerCart.get('/:cid', (req, res) => {
 });
 
 // Agregar un producto a un carrito
-
 routerCart.post('/:cid/product/:pid', (req, res) => {
   const { cid, pid } = req.params;
   const { quantity } = req.body;
@@ -36,11 +36,11 @@ routerCart.post('/:cid/product/:pid', (req, res) => {
 
 
 // Obtener productos en un carrito
-routerCart.get('/:cid/products', (req, res) => {
-  const { cid } = req.params;
-  const products = cartManager.getProductsInCart(parseInt(cid));
-  res.json(products);
-});
+// routerCart.get('/:cid/products', (req, res) => {
+//   const { cid } = req.params;
+//   const products = cartManager.getProductsInCart(parseInt(cid));
+//   res.json(products);
+// });
 
 // Eliminar un producto de un carrito
 routerCart.delete('/:cid/product/:pid', (req, res) => {
