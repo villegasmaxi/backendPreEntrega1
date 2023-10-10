@@ -12,7 +12,7 @@ socket.on('productsUpdated', (products) => {
     });
 });
 
-// Agrega lógica para crear un nuevo producto
+// crear un nuevo producto
 const addProductForm = document.querySelector('#add-product-form');
 addProductForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -21,7 +21,6 @@ addProductForm.addEventListener('submit', (e) => {
         title: formData.get('title'),
         description: formData.get('description'),
         price: parseFloat(formData.get('price')),
-        // Agrega otros campos del producto aquí
     };
 
     // Envía los datos al servidor a través de WebSocket

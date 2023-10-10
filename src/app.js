@@ -15,11 +15,12 @@ import productManager from './products.js';
 const app = express();
 const port = 8080; 
 
-const server = http.createServer(app); // Crea el servidor HTTP
+const server = http.createServer(app); //servidor HTTP
 
 // const server = app.listen(port, ()=>{
 //   console.log('servidor arriba');
 // });
+
 // Configura el servidor de Socket.io
 const io = new SocketIoServer(server);
 // Configura el servidor de Socket.io
@@ -53,7 +54,7 @@ app.get('/realtimeproducts', (req, res) => {
 
 
 io.on('connection', (socket) => {
-  console.log('Cliente conectado');
+  console.log(' Un cliente conectado');
 
 
   // Ejemplo de emisión de productos actualizados
@@ -72,8 +73,8 @@ app.use(bodyParser.json());
 
 app.use('/api', router);
 
-server.listen(8080, () => {
-  console.log(`Servidor arriba`);
+server.listen(port, () => {
+  console.log(`Servidor arriba en puerto ${port}`);
 });
 
 server;
