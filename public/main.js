@@ -1,5 +1,12 @@
 const socket = io();
 
+socket.emit('holaWebsocket')
+
+socket.on('holaConsola',(payload)=>{
+    console.log('hola desde front');
+    console.log(`mensaje desde el server ${payload.message}`);
+})
+
 // Escucha eventos de WebSocket
 socket.on('productsUpdated', (products) => {
     // Actualiza la lista de productos en la vista
