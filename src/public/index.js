@@ -1,5 +1,7 @@
 const socket = io();
 
+
+
 socket.emit('holaWebsocket')
 
 socket.on('holaConsola',(payload)=>{

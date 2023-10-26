@@ -3,10 +3,11 @@
 <head>
     <title>Lista de Productos en Tiempo Real</title>
      <script src="/socket.io/socket.io.js"></script>
-    <script src="/main.js"></script>
+    <script src="index.js"></script>
 </head>
 <body>
-    <h1>Lista de Productos en Tiempo Real</h1>
+   <div class="container">
+     <h1>Lista de Productos en Tiempo Real</h1>
     <ul id="product-list">
         {{#each products}}
             <li>{{this.title}} - {{this.price}}</li>
@@ -26,7 +27,7 @@
 
            <button type="submit">Agregar Producto</button>
     </form>
+   </div>
 
-    
 </body>
 </html>
