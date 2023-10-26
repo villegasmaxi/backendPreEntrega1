@@ -9,11 +9,32 @@ import bodyParser from "body-parser";
 
 import productManager from "./products.js";
 
+import { cwd } from 'node:process';
+import __dirname from './utils.js';
+import mongoose from "mongoose";
+
 const app = express();
 const port = 8080;
 
 const server = http.createServer(app); //servidor HTTP
 
+
+//mongoDB-conectado a mongoAtlas 
+const mongoUrl= 'mongodb+srv://villegasmaxi:lola2508@cluster0.znvh4p2.mongodb.net/?retryWrites=true&w=majority'
+mongoose.connect(mongoUrl, {dbName: 'ecommerce'})
+.then(()=>{
+  console.log('DB mongo connected')
+})
+.catch(e =>{
+  console.error('error connecting to DB mongo')
+})
+
+
+app.get("/mongo", (req, res) => {
+  res.json({status:"OK"});
+});
+
+//websockets
 const io = new SocketIoServer(server);
 
 io.on("connection", (socket) => {
@@ -27,16 +48,27 @@ io.on("connection", (socket) => {
 
   socket.on("holaWebsocket", () => {
     console.log("hola desde server");
-    socket.emit("holaConsola", { message: "hola desde server" });
+    socket.emit("holaConsola", { message: "Emit hola desde server" });
   });
 });
 
-app.use(express.static( process.cwd() + "/public"));
+//app.use(express.static( process.cwd() + "/public"));
+app.use(express.static( __dirname + "/public"));
+
+
+// Define una variable global para compartir datos con las vistas
+app.use((req, res, next) => {
+  res.locals.products = productManager.getProducts();
+  next();
+});
+
 
 //config handlebars
 app.engine("handlebars", handlebars.engine());
 app.set("views", process.cwd() + "/views");
+//app.set("views", __dirname + "/views");
 app.set("view engine", "handlebars");
+
 
 
 // Ruta para la vista home
@@ -58,5 +90,4 @@ app.use("/api", router);
 server.listen(port, () => {
   console.log(`Servidor arriba en puerto ${port}`);
 });
-
 server;

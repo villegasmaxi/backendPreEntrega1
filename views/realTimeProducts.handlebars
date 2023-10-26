@@ -2,10 +2,12 @@
 <html>
 <head>
     <title>Lista de Productos en Tiempo Real</title>
+     <script src="/socket.io/socket.io.js"></script>
+    <script src="/main.js"></script>
 </head>
 <body>
     <h1>Lista de Productos en Tiempo Real</h1>
-    <ul>
+    <ul id="product-list">
         {{#each products}}
             <li>{{this.title}} - {{this.price}}</li>
         {{/each}}

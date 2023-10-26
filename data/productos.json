@@ -193,5 +193,16 @@
     "thumbnail": [
       "https://i.postimg.cc/fyXJVnhq/pastas.jpg"
     ]
+  },
+  {
+    "id": 39,
+    "title": "Caramel Machiato",
+    "description": "latte machiato al caramelo",
+    "code": 1,
+    "price": 1300,
+    "status": true,
+    "stock": 10,
+    "category": "cafe",
+    "thumbnail": "https://i.postimg.cc/mk3rrxZm/caramel-machiato.jpg"
   }
 ]
