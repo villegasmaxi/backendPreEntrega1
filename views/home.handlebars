@@ -4,11 +4,14 @@
     <title>Listado de Productos</title>
 </head>
 <body>
-    <h1>Lista de Productos home</h1>
+    <div class="container">
+<h2>Lista de Productos home</h2>
     <ul>
         {{#each products}}
             <li>{{this.title}} - {{this.price}}</li>
         {{/each}}
     </ul>
+    </div>
+    
 </body>
 </html>

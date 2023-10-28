@@ -13,10 +13,10 @@ class ProductManager {
         try {
             const data = fs.readFileSync(this.path, 'utf8');
             this.products = JSON.parse(data);
-            if (Array.isArray(this.products)) {
-                const maxId = this.products.reduce((max, product) => (product.id > max ? product.id : max), 0);
-                this.nextId = maxId + 1;
-            }
+             if (Array.isArray(this.products)) {
+                 const maxId = this.products.reduce((max, product) => (product.id > max ? product.id : max), 0);
+                 this.nextId = maxId + 1;
+             }
         } catch (error) {
             console.log(error);
             this.products = [];
@@ -41,7 +41,7 @@ class ProductManager {
         }
 
         const product = {
-            id: this.nextId++,
+            //id: this.nextId++,
             title,
             description,
             code,

@@ -4,10 +4,11 @@ import Cart from './models/cartModel.js';
 class CartDao {
   async createCart(userId) {
     try {
-      const newCart = new Cart({ userId, products: [] });
+      const newCart = new Cart({ products: [] }); // userId, era el primer parametro de new cart
       const createdCart = await newCart.save();
       return createdCart;
-    } catch (error) {
+    } 
+    catch (error) {
       throw new Error('Error al crear el carrito');
     }
   }
@@ -20,7 +21,8 @@ class CartDao {
       } else {
         throw new Error('Carrito no encontrado');
       }
-    } catch (error) {
+    } 
+    catch (error) {
       throw new Error('Error al obtener el carrito');
     }
   }
