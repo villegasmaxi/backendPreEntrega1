@@ -2,14 +2,14 @@
 <html>
 <head>
     <title>Lista de Productos en Tiempo Real</title>
-     <script src="/socket.io/socket.io.js"></script>
-    <script src="index.js"></script>
+     {{!-- <script src="/socket.io/socket.io.js"></script>
+    <script src="index.js"></script> --}}
 </head>
 <body>
    <div class="container">
     <div class="container mt-2 border border-solid">
  <h2 class="mt-2">Lista de Productos en Tiempo Real</h2>
-    <ul id="product-list">
+    <ul id="product-list" class="m-1 border border-danger">
         {{#each products}}
             <li>{{this.title}} - {{this.price}}</li>
         {{/each}}

@@ -8,9 +8,13 @@ import router from "./router/routes.js";
 import bodyParser from "body-parser";
 
 import productManager from "./products.js";
+import ProductDao from "./dao/productDao.js";
+
+import Product from "./dao/models/productModel.js"
 
 import __dirname from './utils.js';
 import mongoose from "mongoose";
+
 
 const app = express();
 const port = 8080;
@@ -30,19 +34,35 @@ app.get("/mongo", (req, res) => {
   res.json({status:"OK"});
 });
 
-const io = new SocketIoServer(server);//websockets
+const io = new SocketIoServer(server);//websockets 
 io.on("connection", (socket) => {
-  console.log(" Un cliente conectado");
+  console.log(" IO cliente conectado", socket.id );
+  
+    // Consulta los productos desde la base de datos y emite la lista actualizada
 
-  // Ejemplo de emisión de productos actualizados
+//consulta a mongo no funciona
+
   socket.on("updateProducts", () => {
-    const products = productManager.getProducts();
-    socket.emit("productsUpdated", products); // Emite la lista actualizada a todos los clientes
+    Product.find({}, (err, products) => {
+      if (err) {
+        console.error(err);
+      } else {
+        socket.emit("productsUpdated", products);
+      }
+    });
   });
+
+  // consulta al json local si funciona
+
+  // socket.on("updateProducts", () => {
+  //   const products = productManager.getProducts();
+  //   socket.emit("productsUpdated", products); // Emite la lista de productos actualizada 
+  // });
+
 
   socket.on("holaWebsocket", () => {
     console.log("hola desde server");
-    socket.emit("holaConsola", { message: "Emit hola desde server" });
+    socket.emit("holaConsola", { message: "hola desde server para el front" });
   });
 });
 
@@ -51,9 +71,17 @@ app.use(express.static( __dirname + "/public"));
 
 
 
-// Define una variable global para compartir datos con las vistas
+//Define una variable global para compartir datos con las vistas
+
+// app.use((req, res, next) => {
+//   res.locals.products = productManager.getProducts();
+//   next();
+// });
+
+//variable global a la bd mongoAtlas
+
 app.use((req, res, next) => {
-  res.locals.products = productManager.getProducts();
+  res.locals.db = mongoose.connection;
   next();
 });
 
@@ -76,6 +104,11 @@ app.get("/", (req, res) => {
 // Ruta para la vista en tiempo real
 app.get("/realtimeproducts", (req, res) => {
   res.render("realTimeProducts");
+});
+
+//ruta para el chat
+app.get("/chat", (req, res) => {
+  res.render("chat");
 });
 
 app.use(express.json());

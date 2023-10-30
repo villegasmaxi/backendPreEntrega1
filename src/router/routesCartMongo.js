@@ -1,5 +1,6 @@
 import express from 'express';
 import CartDao from '../dao/cartDao.js';
+import ProductDao from '../dao/productDao.js';
 
 const routerCartMongo = express.Router();
 const cartDao = new CartDao(); // Crear una instancia de CartDao
@@ -36,6 +37,21 @@ routerCartMongo.post('/:cid/product/:pid', async (req, res) => {
   } catch (error) {
     res.status(404).json({ error: 'Carrito o producto no encontrado' });
   }
+});
+
+
+
+
+//tira error 500
+
+routerCartMongo.delete('/:cid/product/:pid', async (req, res) => {
+  const { cid, pid } = req.params;
+  try {
+     await cartDao.removeProductFromCart(cid, pid);
+      res.json({ message: 'Producto eliminado del carrito con éxito' });
+    } catch {
+      res.status(404).json({ error: 'Carrito o producto no eliminado del carrito' });
+    }
 });
 
 export default routerCartMongo;

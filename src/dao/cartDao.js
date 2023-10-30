@@ -49,6 +49,27 @@ class CartDao {
   }
 
   // faltan otros métodos, como eliminar productos del carrito, actualizar carrito, etc.
+  //probando borrar producto de carrito
+   //eliminar productos de un carrito. (todavis no lo usamos)
+
+  async removeProductFromCart(cartId, productId) {
+    const cart = await this.getCartById(cartId); //this. adelante de getcart
+
+    if (!cart) {
+      return false; // Error: Carrito no encontrado
+    }
+
+    const index = cart.products.findIndex((item) => item.product.id === productId);
+
+    if (index !== -1) {
+      // Elimina el producto del carrito
+      cart.products.splice(index, 1);
+      this.saveCarts();
+      return true;
+    }
+
+    return false; // Error: Producto no encontrado en el carrito
+  }
 }
 
 export default CartDao;
