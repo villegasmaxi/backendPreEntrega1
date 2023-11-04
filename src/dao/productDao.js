@@ -1,6 +1,9 @@
 import Product from './models/productModel.js';
 
 class ProductDao {
+  constructor(){}
+  
+
   // Crear un nuevo producto
   async addProduct(productData) {
     try {
@@ -54,4 +57,5 @@ class ProductDao {
   }
 }
 
-export default ProductDao;
+const productsDAO = new ProductDao()
+export default productsDAO;

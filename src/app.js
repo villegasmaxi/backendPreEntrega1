@@ -40,17 +40,10 @@ io.on("connection", (socket) => {
   
     // Consulta los productos desde la base de datos y emite la lista actualizada
 
-//consulta a mongo no funciona
-
-  socket.on("updateProducts", () => {
-    Product.find({}, (err, products) => {
-      if (err) {
-        console.error(err);
-      } else {
+  socket.on("updateProducts", async () => {
+    const products = await ProductDao.getProducts();
         socket.emit("productsUpdated", products);
-      }
-    });
-  });
+      });
 
   // consulta al json local si funciona
 
@@ -64,7 +57,14 @@ io.on("connection", (socket) => {
     console.log("hola desde server");
     socket.emit("holaConsola", { message: "hola desde server para el front" });
   });
+
+  socket.on('createProduct', (newProductData)=>{
+    const newProducts = ProductDao.addProduct(newProductData);
+    console.log(newProducts);
+  })
+  
 });
+
 
 //app.use(express.static( process.cwd() + "/public"));
 app.use(express.static( __dirname + "/public"));

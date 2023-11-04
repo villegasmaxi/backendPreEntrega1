@@ -2,7 +2,7 @@
 import Cart from './models/cartModel.js';
 
 class CartDao {
-  async createCart(userId) {
+  async createCart() {
     try {
       const newCart = new Cart({ products: [] }); // userId, era el primer parametro de new cart
       const createdCart = await newCart.save();
@@ -51,20 +51,21 @@ class CartDao {
   // faltan otros métodos, como eliminar productos del carrito, actualizar carrito, etc.
   //probando borrar producto de carrito
    //eliminar productos de un carrito. (todavis no lo usamos)
+ 
 
   async removeProductFromCart(cartId, productId) {
-    const cart = await this.getCartById(cartId); //this. adelante de getcart
+    const cart = await this.getCartById(cartId);
 
     if (!cart) {
       return false; // Error: Carrito no encontrado
     }
 
-    const index = cart.products.findIndex((item) => item.product.id === productId);
+    const index = cart.products.findIndex((item) => item.productId === productId);
 
     if (index !== -1) {
       // Elimina el producto del carrito
       cart.products.splice(index, 1);
-      this.saveCarts();
+    await cart.save();
       return true;
     }
 

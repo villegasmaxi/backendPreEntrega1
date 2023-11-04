@@ -1,8 +1,6 @@
 import express from 'express';
-import ProductDao from '../dao/productDao.js'; // Importa el Dao de productos
 
 const routerProductsMongo = express.Router();
-const productDao = new ProductDao(); // Crea una instancia del Dao de productos
 
 // Listar todos los productos
 routerProductsMongo.get('/', async (req, res) => {
