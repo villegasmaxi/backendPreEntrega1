@@ -23,6 +23,7 @@ socket.on('productsUpdated', (products) => {
 });
 
 // crear un nuevo producto
+document.addEventListener('DOMContentLoaded', () => {
 const addProductForm = document.querySelector('#add-product-form');
 addProductForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -31,9 +32,13 @@ addProductForm.addEventListener('submit', (e) => {
         title: formData.get('title'),
         description: formData.get('description'),
         price: parseFloat(formData.get('price')),
+        code: formData.get('code'),
     };
 
     // Envía los datos al servidor a través de WebSocket
     socket.emit('createProduct', newProductData);
+    console.log(newProductData);
     addProductForm.reset(); // Limpia el formulario
 });
+});
+

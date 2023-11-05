@@ -58,9 +58,9 @@ io.on("connection", (socket) => {
     socket.emit("holaConsola", { message: "hola desde server para el front" });
   });
 
-  socket.on('createProduct', (newProductData)=>{
-    const newProducts = ProductDao.addProduct(newProductData);
-    console.log(newProducts);
+  socket.on('createProduct', async(newProductData)=>{
+    const productData = await ProductDao.addProduct(newProductData);
+    console.log(productData);
   })
   
 });
